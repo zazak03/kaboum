@@ -42,6 +42,7 @@ func _on_button_pressed():
 
 
 func _on_reset_pressed():
+	game_is_playing = false
 	var decalage = [0,0]
 	for old_barrel in $barrels.get_children():
 		old_barrel.free()
@@ -64,3 +65,4 @@ func _on_reset_pressed():
 		get_node("debris_list").add_child(debri)
 	
 	$barrels.get_child(0).modulate = Color8(215,99,255)
+	
