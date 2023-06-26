@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6p03qx300b0j"]
+[gd_scene load_steps=4 format=3 uid="uid://bua1gjp885u7y"]
 
 [ext_resource type="Texture2D" uid="uid://c6xfwbi6wwc6e" path="res://icon.svg" id="1_0xwlh"]
 [ext_resource type="Script" path="res://debris.gd" id="1_tymk2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t2xu4"]
 
-[node name="debris" type="RigidBody2D"]
+[node name="debris" type="RigidBody2D" groups=["debris"]]
 gravity_scale = 0.0
 linear_damp = 2.0
 script = ExtResource("1_tymk2")

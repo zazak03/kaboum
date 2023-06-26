@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var force = 10
+@export var vie = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,9 +12,10 @@ func exploding():
 	print("exploding")
 	var largeur_area2D = $Barrel/Area2D/CollisionShape2D.shape.radius
 	for debris in $Barrel/Area2D.get_overlapping_bodies():
-		var direction = (debris.global_position - $Barrel.global_position)
-		debris.apply_impulse(direction.normalized() * (largeur_area2D - $Barrel.global_position.distance_to(debris.global_position)) * force)
-	queue_free()
+		if "debris" in debris.get_groupes():
+			var direction = (debris.global_position - $Barrel.global_position)
+			debris.apply_impulse(direction.normalized() * (largeur_area2D - $Barrel.global_position.distance_to(debris.global_position)) * force)
+	queue_free()	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
