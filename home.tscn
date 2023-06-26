@@ -130,6 +130,25 @@ offset_right = 1036.0
 offset_bottom = 79.0
 text = "debris :"
 
+[node name="HSlider3" type="HSlider" parent="Ui"]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 76.0
+offset_right = 1147.0
+offset_bottom = 92.0
+min_value = 0.1
+max_value = 20.0
+step = 0.1
+value = 10.0
+
+[node name="Label5" type="Label" parent="Ui"]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 70.0
+offset_right = 1036.0
+offset_bottom = 96.0
+text = "POWER:"
+
 [node name="walls" type="Node2D" parent="."]
 
 [node name="wall" type="StaticBody2D" parent="walls"]
