@@ -15,7 +15,9 @@ func exploding(delay = 1):
 	for debris in $Barrel/exploding_area.get_overlapping_bodies():
 		if "debris" in debris.get_groups():
 			var direction = (debris.global_position - $Barrel.global_position)
-			debris.apply_impulse(direction.normalized() * (largeur_area2D - $Barrel.global_position.distance_to(debris.global_position)) * force)
+			var puissance_de_propulsage = (largeur_area2D - $Barrel.global_position.distance_to(debris.global_position)) * force
+			debris.apply_impulse(direction.normalized() * puissance_de_propulsage)
+			get_tree().root.get_node("home").Score += puissance_de_propulsage
 	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
