@@ -4,6 +4,11 @@ var picked:Node2D
 var barrel_position
 var radius = 16
 var game_is_playing = false
+@export var number_of_barrel:int
+@export var number_of_random_debris:int
+
+var Score:int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -21,6 +26,6 @@ func _process(delta):
 			if Input.is_action_just_released("click"):picked = null
 
 
-
 func _on_button_pressed():
+	game_is_playing = true
 	$barrels/barrel_explose_debut.exploding()

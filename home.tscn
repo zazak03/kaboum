@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwdk70c2hin3h"]
+[gd_scene load_steps=10 format=3 uid="uid://dwdk70c2hin3h"]
 
 [ext_resource type="Script" path="res://home.gd" id="1_p8gtn"]
 [ext_resource type="PackedScene" uid="uid://chft05mglcw07" path="res://barrel.tscn" id="2_7ssks"]
@@ -9,6 +9,10 @@ font_size = 20
 font_color = Color(0.823529, 0.133333, 0, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_olhti"]
+font_size = 40
+font_color = Color(0.682353, 0.596078, 0.286275, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bgafk"]
 font_color = Color(0.756863, 0, 0.662745, 1)
@@ -52,6 +56,15 @@ label_settings = SubResource("LabelSettings_hjkcp")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Score" type="Label" parent="ColorRect2"]
+offset_left = -960.0
+offset_top = 5.0
+offset_right = -719.0
+offset_bottom = 63.0
+text = "Score : 0"
+label_settings = SubResource("LabelSettings_olhti")
+vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="ColorRect2"]
 texture_filter = 1
