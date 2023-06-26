@@ -7,6 +7,7 @@
 
 [node name="debris" type="RigidBody2D"]
 gravity_scale = 0.0
+linear_damp = 2.0
 script = ExtResource("1_tymk2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
