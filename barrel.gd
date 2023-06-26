@@ -5,7 +5,6 @@ extends Node2D
 func _ready():
 	$Barrel3.exploding()
 	await get_tree().create_timer(1).timeout # waits for 1 second
-	$Barrel2.exploding()
 	
 	
 	
