@@ -1,26 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://dy255vmx6v0t5"]
+[gd_scene load_steps=8 format=3 uid="uid://dwdk70c2hin3h"]
 
 [ext_resource type="Script" path="res://home.gd" id="1_p8gtn"]
-[ext_resource type="PackedScene" uid="uid://crejtmpghpjrw" path="res://barrel.tscn" id="2_7ssks"]
-[ext_resource type="PackedScene" uid="uid://bua1gjp885u7y" path="res://debris.tscn" id="3_x2qin"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hjkcp"]
 font_size = 20
 font_color = Color(0.823529, 0.133333, 0, 1)
-outline_size = 10
+outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_olhti"]
 font_size = 40
-font_color = Color(0.682353, 0.596078, 0.286275, 1)
+font_color = Color(0.67451, 0, 0.121569, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bgafk"]
 font_color = Color(0.756863, 0, 0.662745, 1)
-outline_size = 5
+outline_size = 6
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Theme" id="Theme_1aiis"]
-default_font_size = 30
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_03fn8"]
 bounce = 1.0
@@ -28,6 +25,12 @@ bounce = 1.0
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tc14i"]
 a = Vector2(0, 2)
 b = Vector2(965, 1)
+
+[sub_resource type="Theme" id="Theme_1aiis"]
+default_font_size = 30
+Button/colors/font_color = Color(0.909804, 0, 0.592157, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 6
 
 [node name="home" type="Node2D"]
 script = ExtResource("1_p8gtn")
@@ -42,24 +45,23 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.243137, 0.160784, 0.176471, 1)
+color = Color(0.831373, 0.607843, 0.423529, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Ui"]
 layout_mode = 0
 offset_left = 965.0
-offset_top = 1.0
 offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.32549, 0.270588, 0.360784, 1)
+offset_bottom = 649.0
+color = Color(0.439216, 0.372549, 0.482353, 1)
 
 [node name="Label" type="Label" parent="Ui"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 966.0
-offset_top = 1.0
+offset_top = -22.0
 offset_right = 1149.0
-offset_bottom = 79.0
-text = "Place your 3  barrels
+offset_bottom = 56.0
+text = "Place your barrels
 "
 label_settings = SubResource("LabelSettings_hjkcp")
 horizontal_alignment = 1
@@ -93,20 +95,40 @@ label_settings = SubResource("LabelSettings_bgafk")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="kaboum" type="Button" parent="."]
-offset_left = 420.0
-offset_top = 587.0
-offset_right = 601.0
-offset_bottom = 645.0
-theme = SubResource("Theme_1aiis")
-text = "KABOUM !"
+[node name="HSlider" type="HSlider" parent="Ui"]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 40.0
+offset_right = 1147.0
+offset_bottom = 56.0
+min_value = 1.0
+max_value = 20.0
+value = 3.0
 
-[node name="reset" type="Button" parent="."]
-offset_left = 893.0
-offset_top = 8.0
-offset_right = 956.0
-offset_bottom = 39.0
-text = "RESET !"
+[node name="Label3" type="Label" parent="Ui"]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 34.0
+offset_right = 1036.0
+offset_bottom = 60.0
+text = "barrels :"
+
+[node name="HSlider2" type="HSlider" parent="Ui"]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 59.0
+offset_right = 1147.0
+offset_bottom = 75.0
+min_value = 1.0
+value = 20.0
+
+[node name="Label4" type="Label" parent="Ui"]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 53.0
+offset_right = 1036.0
+offset_bottom = 79.0
+text = "debris :"
 
 [node name="walls" type="Node2D" parent="."]
 
@@ -140,77 +162,22 @@ shape = SubResource("SegmentShape2D_tc14i")
 
 [node name="barrels" type="Node2D" parent="."]
 
-[node name="barrel_explose_debut" parent="barrels" instance=ExtResource("2_7ssks")]
-modulate = Color(0.713726, 0.231373, 0.945098, 1)
-position = Vector2(1010, 252)
-
-[node name="Barrel2" parent="barrels" instance=ExtResource("2_7ssks")]
-position = Vector2(1098, 164)
-
-[node name="Barrel3" parent="barrels" instance=ExtResource("2_7ssks")]
-position = Vector2(1074, 316)
-
 [node name="debris_list" type="Node2D" parent="."]
 
-[node name="debris" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(344, 238)
+[node name="kaboum" type="Button" parent="."]
+offset_left = 420.0
+offset_top = 587.0
+offset_right = 601.0
+offset_bottom = 645.0
+theme = SubResource("Theme_1aiis")
+text = "KABOUM !"
 
-[node name="debris2" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(536, 327)
-
-[node name="debris3" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(305, 264)
-
-[node name="debris4" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(541, 153)
-
-[node name="debris5" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(316, 84)
-
-[node name="debris6" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(480, 414)
-
-[node name="debris7" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(672, 503)
-
-[node name="debris8" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(441, 440)
-
-[node name="debris9" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(677, 329)
-
-[node name="debris10" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(452, 260)
-
-[node name="debris11" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(104, 270)
-
-[node name="debris12" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(296, 359)
-
-[node name="debris13" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(65, 296)
-
-[node name="debris14" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(301, 185)
-
-[node name="debris15" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(76, 116)
-
-[node name="debris16" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(240, 446)
-
-[node name="debris17" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(432, 535)
-
-[node name="debris18" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(201, 472)
-
-[node name="debris19" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(437, 361)
-
-[node name="debris20" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(212, 292)
+[node name="reset" type="Button" parent="."]
+offset_left = 893.0
+offset_top = 8.0
+offset_right = 956.0
+offset_bottom = 39.0
+text = "RESET !"
 
 [connection signal="pressed" from="kaboum" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]

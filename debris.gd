@@ -10,7 +10,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	get_tree().root.get_node("home").Score += int(linear_velocity.length()/100)
-	print(get_tree().root.get_node("home").Score)
 	pass

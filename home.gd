@@ -15,7 +15,7 @@ var debri
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	_on_reset_pressed()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,6 +42,8 @@ func _on_button_pressed():
 
 
 func _on_reset_pressed():
+	number_of_barrel = $Ui/HSlider.value
+	number_of_random_debris = $Ui/HSlider2.value
 	game_is_playing = false
 	var decalage = [0,0]
 	for old_barrel in $barrels.get_children():
