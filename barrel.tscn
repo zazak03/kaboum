@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://chft05mglcw07"]
+[gd_scene load_steps=6 format=3 uid="uid://7wgqdv2ilqqn"]
 
 [ext_resource type="Script" path="res://barrel.gd" id="1_60ewh"]
 [ext_resource type="Texture2D" uid="uid://c6xfwbi6wwc6e" path="res://icon.svg" id="1_u3hko"]
-[ext_resource type="Texture2D" uid="uid://gcnmahr283dm" path="res://Assets/Sprites/barel-1.png" id="2_awykn"]
+[ext_resource type="Texture2D" uid="uid://cf85pho0glugq" path="res://Assets/Sprites/barel-1.png" id="2_awykn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xu4d0"]
-radius = 60.2687
+radius = 285.344
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1imr"]
 
@@ -15,7 +15,6 @@ script = ExtResource("1_60ewh")
 
 [node name="Barrel" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(4, 4)
 texture = ExtResource("2_awykn")
 
 [node name="Area2D" type="Area2D" parent="Barrel"]
@@ -50,7 +49,7 @@ position = Vector2(7, 5)
 shape = SubResource("CapsuleShape2D_v1imr")
 
 [node name="debris3" type="RigidBody2D" parent="."]
-position = Vector2(152, 0)
+position = Vector2(228, -8)
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="debris3"]
@@ -67,10 +66,8 @@ position = Vector2(72, 0)
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="debris4"]
-position = Vector2(7, 5)
 scale = Vector2(0.144531, 0.195312)
 texture = ExtResource("1_u3hko")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="debris4"]
-position = Vector2(7, 5)
 shape = SubResource("CapsuleShape2D_v1imr")
