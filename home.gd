@@ -6,7 +6,7 @@ var radius
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	radius = 16
-	barrel_position = $StaticBody2D.position
+	barrel_position = $Barrel.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,5 +18,9 @@ func _process(delta):
 	if picked:
 		if Input.is_action_just_released("click"):
 			picked = false
-		$StaticBody2D.position=get_global_mouse_position()
+		$Barrel.position=get_global_mouse_position()
 
+
+
+func _on_button_pressed():
+	$Barrel.exploding()

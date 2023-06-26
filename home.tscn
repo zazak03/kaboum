@@ -1,7 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dwdk70c2hin3h"]
 
 [ext_resource type="Script" path="res://home.gd" id="1_p8gtn"]
-[ext_resource type="Texture2D" uid="uid://gcnmahr283dm" path="res://Assets/Sprites/barel-1.png" id="1_yvnna"]
+[ext_resource type="PackedScene" uid="uid://chft05mglcw07" path="res://barrel.tscn" id="2_7ssks"]
+[ext_resource type="PackedScene" uid="uid://b6p03qx300b0j" path="res://debris.tscn" id="3_x2qin"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hjkcp"]
 font_size = 20
@@ -16,9 +17,6 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_1aiis"]
 default_font_size = 30
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_f6m8s"]
-radius = 16.1245
 
 [node name="home" type="Node2D"]
 script = ExtResource("1_p8gtn")
@@ -37,6 +35,7 @@ color = Color(0.32549, 0.270588, 0.360784, 1)
 
 [node name="Label" type="Label" parent="ColorRect2"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 1.0
 offset_right = 184.0
 offset_bottom = 78.0
@@ -49,6 +48,7 @@ autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="ColorRect2"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 2.0
 offset_top = 397.0
 offset_right = 185.0
@@ -71,18 +71,23 @@ offset_bottom = 645.0
 theme = SubResource("Theme_1aiis")
 text = "KABOUM !"
 
-[node name="StaticBody2D" type="RigidBody2D" parent="."]
-position = Vector2(1016, 267)
-input_pickable = true
-gravity_scale = 0.0
+[node name="Barrel" parent="." instance=ExtResource("2_7ssks")]
+position = Vector2(1010, 252)
+force = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_f6m8s")
-debug_color = Color(0, 0.6, 0.701961, 0)
+[node name="debris" parent="." instance=ExtResource("3_x2qin")]
+position = Vector2(344, 238)
 
-[node name="Barel1" type="Sprite2D" parent="StaticBody2D"]
-texture_filter = 1
-texture = ExtResource("1_yvnna")
+[node name="debris2" parent="." instance=ExtResource("3_x2qin")]
+position = Vector2(536, 327)
 
-[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
-[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[node name="debris3" parent="." instance=ExtResource("3_x2qin")]
+position = Vector2(305, 264)
+
+[node name="debris4" parent="." instance=ExtResource("3_x2qin")]
+position = Vector2(541, 153)
+
+[node name="debris5" parent="." instance=ExtResource("3_x2qin")]
+position = Vector2(316, 84)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
