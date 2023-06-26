@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://7wgqdv2ilqqn"]
+
+[ext_resource type="Script" path="res://barrel.gd" id="1_gttdi"]
+[ext_resource type="Texture2D" uid="uid://c6xfwbi6wwc6e" path="res://icon.svg" id="3_5mksr"]
+[ext_resource type="PackedScene" uid="uid://crejtmpghpjrw" path="res://barrel.tscn" id="4_62ipr"]
+[ext_resource type="PackedScene" uid="uid://bua1gjp885u7y" path="res://debris.tscn" id="4_e45t2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1imr"]
+
+[node name="barrel" type="Node2D"]
+position = Vector2(256, 240)
+script = ExtResource("1_gttdi")
+
+[node name="debris4" type="RigidBody2D" parent="."]
+position = Vector2(72, 0)
+gravity_scale = 0.0
+linear_damp = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="debris4"]
+scale = Vector2(0.144531, 0.195312)
+texture = ExtResource("3_5mksr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="debris4"]
+shape = SubResource("CapsuleShape2D_v1imr")
+
+[node name="Barrel2" parent="." instance=ExtResource("4_62ipr")]
+position = Vector2(297, 65)
+
+[node name="Barrel3" parent="." instance=ExtResource("4_62ipr")]
+position = Vector2(-40, -2)
+force = 10
+
+[node name="debris" parent="." instance=ExtResource("4_e45t2")]
+position = Vector2(203, -52)
+linear_damp = 1.0
