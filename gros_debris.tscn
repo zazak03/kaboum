@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0lstg0x85g8f"]
+
+[ext_resource type="Script" path="res://gros_debris.gd" id="1_s52m1"]
+[ext_resource type="Texture2D" uid="uid://myj3xp5cry1v" path="res://Assets/Sprites/New Piskel-1.png" id="2_v51c8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37d4l"]
+size = Vector2(33, 35)
+
+[node name="gros_debris" type="RigidBody2D" groups=["debris"]]
+gravity_scale = 0.0
+linear_damp = 1.0
+script = ExtResource("1_s52m1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_v51c8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_37d4l")

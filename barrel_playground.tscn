@@ -31,4 +31,3 @@ position = Vector2(-40, -2)
 
 [node name="debris" parent="." instance=ExtResource("4_e45t2")]
 position = Vector2(203, -52)
-linear_damp = 1.0

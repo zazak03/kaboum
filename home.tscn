@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwdk70c2hin3h"]
+[gd_scene load_steps=9 format=3 uid="uid://dwdk70c2hin3h"]
 
 [ext_resource type="Script" path="res://home.gd" id="1_p8gtn"]
+[ext_resource type="PackedScene" uid="uid://c0lstg0x85g8f" path="res://gros_debris.tscn" id="2_ga0ri"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hjkcp"]
 font_size = 20
@@ -197,6 +198,9 @@ offset_top = 8.0
 offset_right = 956.0
 offset_bottom = 39.0
 text = "RESET !"
+
+[node name="gros_debris" parent="." instance=ExtResource("2_ga0ri")]
+position = Vector2(390, 553)
 
 [connection signal="pressed" from="kaboum" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
