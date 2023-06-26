@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://chft05mglcw07"]
+[gd_scene load_steps=6 format=3 uid="uid://crejtmpghpjrw"]
 
 [ext_resource type="Script" path="res://Barel.gd" id="1_cymhm"]
-[ext_resource type="Texture2D" uid="uid://gcnmahr283dm" path="res://Assets/Sprites/barel-1.png" id="2_awykn"]
+[ext_resource type="Texture2D" uid="uid://cf85pho0glugq" path="res://Assets/Sprites/barel-1.png" id="2_awykn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebl4u"]
 radius = 17.0294
@@ -9,8 +9,10 @@ radius = 17.0294
 [sub_resource type="CircleShape2D" id="CircleShape2D_rxjdy"]
 radius = 285.344
 
-[node name="Barrel" type="RigidBody2D"]
-gravity_scale = 0.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_hvql0"]
+radius = 17.0
+
+[node name="Barrel" type="StaticBody2D"]
 script = ExtResource("1_cymhm")
 
 [node name="mouse_collision" type="CollisionShape2D" parent="."]
@@ -20,7 +22,13 @@ shape = SubResource("CircleShape2D_ebl4u")
 texture_filter = 1
 texture = ExtResource("2_awykn")
 
-[node name="Area2D" type="Area2D" parent="Barrel"]
+[node name="exploding_area" type="Area2D" parent="Barrel"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel/exploding_area"]
 shape = SubResource("CircleShape2D_rxjdy")
+
+[node name="hitbox" type="Area2D" parent="Barrel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel/hitbox"]
+shape = SubResource("CircleShape2D_hvql0")
+debug_color = Color(0.866667, 0, 0.854902, 0.419608)
