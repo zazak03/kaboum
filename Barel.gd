@@ -12,7 +12,8 @@ func exploding(delay = 1):
 	await get_tree().create_timer(delay).timeout # waits for 1 second
 	print("exploding")
 	var largeur_area2D = $Barrel/exploding_area/CollisionShape2D.shape.radius
-	for debris in $Barrel/exploding_area.get_overlapping_bodies():
+	var ma_liste = $Barrel/exploding_area.get_overlapping_bodies().duplicate(true)
+	for debris in ma_liste:
 		if "debris" in debris.get_groups():
 			debris.explosion(largeur_area2D, global_position, force)
 	hide()
