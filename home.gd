@@ -4,8 +4,8 @@ var picked:Node2D
 var barrel_position
 var radius = 16
 var game_is_playing = false
-@export var number_of_barrel:int
-@export var number_of_random_debris:int
+@export var number_of_barrel:int = 3
+@export var number_of_random_debris:int = 30
 var Score = 0
 
 @onready var barrel_scene = preload("res://barrel.tscn")
