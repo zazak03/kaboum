@@ -1,27 +1,26 @@
 extends Node2D
 
-var picked = false
+var picked:Node2D
 var barrel_position
-var radius
+var radius = 16
 var game_is_playing = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	radius = 16
-	barrel_position = $Barrel.position
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if barrel_position.x - radius <= get_global_mouse_position().x and get_global_mouse_position().x <= barrel_position.x + radius and barrel_position.y - radius <= get_global_mouse_position().y and get_global_mouse_position().y <= barrel_position.y + radius :
-		print("inside")
-		if Input.is_action_just_pressed("click"):
-			picked = true
-			print("picked")
-	if picked:
-		if Input.is_action_just_released("click"):
-			picked = false
-		$Barrel.position=get_global_mouse_position()
+	
+	for barrel in get_node("barrels").get_children():
+		
+		if barrel.position.x - radius <= get_global_mouse_position().x and get_global_mouse_position().x <= barrel.position.x + radius and barrel.position.y - radius <= get_global_mouse_position().y and get_global_mouse_position().y <= barrel.position.y + radius :
+			if Input.is_action_just_pressed("click"):picked = barrel
+		
+		if picked != null:
+			picked.position=get_global_mouse_position()
+			if Input.is_action_just_released("click"):picked = null
 
 
 
 func _on_button_pressed():
-	$Barrel.exploding()
+	$barrels/barrel_explose_debut.exploding()
