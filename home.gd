@@ -25,11 +25,15 @@ func _process(delta):
 	for barrel in get_node("barrels").get_children():
 		
 		if barrel.position.x - radius <= get_global_mouse_position().x and get_global_mouse_position().x <= barrel.position.x + radius and barrel.position.y - radius <= get_global_mouse_position().y and get_global_mouse_position().y <= barrel.position.y + radius :
-			if Input.is_action_just_pressed("click"):picked = barrel
+			if Input.is_action_just_pressed("click"):
+				picked = barrel
+				barrel.get_node("mouse_collision").disabled = true
 		
 		if picked != null:
 			picked.position=get_global_mouse_position()
-			if Input.is_action_just_released("click"):picked = null
+			if Input.is_action_just_released("click"):
+				picked = null
+				barrel.get_node("mouse_collision").disabled = false
 
 
 func _on_button_pressed():
