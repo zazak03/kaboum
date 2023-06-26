@@ -1,19 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://chft05mglcw07"]
+[gd_scene load_steps=6 format=3 uid="uid://crejtmpghpjrw"]
 
 [ext_resource type="Script" path="res://Barel.gd" id="1_cymhm"]
-[ext_resource type="Texture2D" uid="uid://gcnmahr283dm" path="res://Assets/Sprites/barel-1.png" id="2_awykn"]
+[ext_resource type="Texture2D" uid="uid://cf85pho0glugq" path="res://Assets/Sprites/barel-1.png" id="2_awykn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebl4u"]
-radius = 17.0294
+radius = 17.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rxjdy"]
-radius = 285.344
+radius = 177.282
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hvql0"]
-radius = 17.0
+radius = 18.0
 
 [node name="Barrel" type="StaticBody2D"]
 script = ExtResource("1_cymhm")
+force = 5
 
 [node name="mouse_collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ebl4u")
