@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwdk70c2hin3h"]
+[gd_scene load_steps=8 format=3 uid="uid://dwdk70c2hin3h"]
 
 [ext_resource type="Script" path="res://home.gd" id="1_p8gtn"]
-[ext_resource type="PackedScene" uid="uid://bua1gjp885u7y" path="res://debris.tscn" id="3_x2qin"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hjkcp"]
 font_size = 20
@@ -30,8 +29,6 @@ default_font_size = 30
 
 [node name="home" type="Node2D"]
 script = ExtResource("1_p8gtn")
-number_of_barrel = 10
-number_of_random_debris = 50
 
 [node name="Ui" type="Control" parent="."]
 layout_mode = 3
@@ -60,7 +57,7 @@ offset_left = 966.0
 offset_top = 1.0
 offset_right = 1149.0
 offset_bottom = 79.0
-text = "Place your 3  barrels
+text = "Place your barrels
 "
 label_settings = SubResource("LabelSettings_hjkcp")
 horizontal_alignment = 1
@@ -127,9 +124,6 @@ shape = SubResource("SegmentShape2D_tc14i")
 [node name="barrels" type="Node2D" parent="."]
 
 [node name="debris_list" type="Node2D" parent="."]
-
-[node name="debris" parent="debris_list" instance=ExtResource("3_x2qin")]
-position = Vector2(406, 290)
 
 [node name="kaboum" type="Button" parent="."]
 offset_left = 420.0
