@@ -10,8 +10,10 @@ var Score = 0
 
 @onready var barrel_scene = preload("res://barrel.tscn")
 @onready var debri_scene = preload("res://debris.tscn")
+@onready var big_debri_scene = preload("res://gros_debris.tscn")
 var barrel
 var debri
+var big_debri
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -68,6 +70,11 @@ func _on_reset_pressed():
 		debri = debri_scene.instantiate()
 		debri.position = Vector2(randi_range(16,948),randi_range(80,630))
 		get_node("debris_list").add_child(debri)
+	
+	for i in range(randi_range(2,5)):
+		big_debri = big_debri_scene.instantiate()
+		big_debri.position = Vector2(randi_range(16,948),randi_range(80,630))
+		get_node("debris_list").add_child(big_debri)
 	
 	$barrels.get_child(0).modulate = Color8(215,99,255)
 	

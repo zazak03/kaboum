@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwdk70c2hin3h"]
+[gd_scene load_steps=11 format=3 uid="uid://dwdk70c2hin3h"]
 
 [ext_resource type="Script" path="res://home.gd" id="1_p8gtn"]
-[ext_resource type="PackedScene" uid="uid://c0lstg0x85g8f" path="res://gros_debris.tscn" id="2_ga0ri"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hjkcp"]
 font_size = 20
@@ -23,9 +22,17 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_03fn8"]
 bounce = 1.0
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_tc14i"]
-a = Vector2(0, 2)
-b = Vector2(965, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_va8u4"]
+size = Vector2(976, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm7a6"]
+size = Vector2(20, 661)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fots"]
+size = Vector2(34, 978.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66y5t"]
+size = Vector2(674, 20)
 
 [sub_resource type="Theme" id="Theme_1aiis"]
 default_font_size = 30
@@ -156,21 +163,24 @@ text = "POWER:"
 physics_material_override = SubResource("PhysicsMaterial_03fn8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall"]
-shape = SubResource("SegmentShape2D_tc14i")
+position = Vector2(478, 0)
+shape = SubResource("RectangleShape2D_va8u4")
 
 [node name="wall2" type="StaticBody2D" parent="walls"]
 position = Vector2(0, 648)
 physics_material_override = SubResource("PhysicsMaterial_03fn8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall2"]
-shape = SubResource("SegmentShape2D_tc14i")
+position = Vector2(0, -320.5)
+shape = SubResource("RectangleShape2D_rm7a6")
 
 [node name="wall3" type="StaticBody2D" parent="walls"]
 rotation = 1.5708
 physics_material_override = SubResource("PhysicsMaterial_03fn8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall3"]
-shape = SubResource("SegmentShape2D_tc14i")
+position = Vector2(656, -481)
+shape = SubResource("RectangleShape2D_3fots")
 
 [node name="wall4" type="StaticBody2D" parent="walls"]
 position = Vector2(968, 0)
@@ -178,7 +188,8 @@ rotation = 1.5708
 physics_material_override = SubResource("PhysicsMaterial_03fn8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall4"]
-shape = SubResource("SegmentShape2D_tc14i")
+position = Vector2(327, 0)
+shape = SubResource("RectangleShape2D_66y5t")
 
 [node name="barrels" type="Node2D" parent="."]
 
@@ -198,9 +209,6 @@ offset_top = 8.0
 offset_right = 956.0
 offset_bottom = 39.0
 text = "RESET !"
-
-[node name="gros_debris" parent="." instance=ExtResource("2_ga0ri")]
-position = Vector2(390, 553)
 
 [connection signal="pressed" from="kaboum" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
