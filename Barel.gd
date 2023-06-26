@@ -16,11 +16,11 @@ func exploding(delay = 1):
 		if "debris" in debris.get_groups():
 			var direction = (debris.global_position - $Barrel.global_position)
 			debris.apply_impulse(direction.normalized() * (largeur_area2D - $Barrel.global_position.distance_to(debris.global_position)) * force)
-	queue_free()	
+	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if true:
+	if get_tree().root.get_node("home").game_is_playing:
 		for body in $Barrel/hitbox.get_overlapping_bodies():
 			if "debris" in body.get_groups():
 				vie -= 1
