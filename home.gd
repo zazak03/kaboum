@@ -3,6 +3,7 @@ extends Node2D
 var picked = false
 var barrel_position
 var radius
+var game_is_playing = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	radius = 16
