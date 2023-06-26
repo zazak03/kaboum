@@ -32,24 +32,33 @@ b = Vector2(965, 1)
 [node name="home" type="Node2D"]
 script = ExtResource("1_p8gtn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Ui"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.243137, 0.160784, 0.176471, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="Ui"]
+layout_mode = 0
 offset_left = 965.0
 offset_top = 1.0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.32549, 0.270588, 0.360784, 1)
 
-[node name="Label" type="Label" parent="ColorRect2"]
+[node name="Label" type="Label" parent="Ui"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 1.0
-offset_right = 184.0
-offset_bottom = 78.0
+offset_left = 966.0
+offset_top = 1.0
+offset_right = 1149.0
+offset_bottom = 79.0
 text = "Place your 3  barrels
 "
 label_settings = SubResource("LabelSettings_hjkcp")
@@ -57,22 +66,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Score" type="Label" parent="ColorRect2"]
-offset_left = -960.0
-offset_top = 5.0
-offset_right = -719.0
-offset_bottom = 63.0
+[node name="Score" type="Label" parent="Ui"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 246.0
+offset_bottom = 64.0
 text = "Score : 0"
 label_settings = SubResource("LabelSettings_olhti")
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="ColorRect2"]
+[node name="Label2" type="Label" parent="Ui"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 2.0
-offset_top = 397.0
-offset_right = 185.0
-offset_bottom = 644.0
+offset_left = 967.0
+offset_top = 398.0
+offset_right = 1150.0
+offset_bottom = 645.0
 text = "Make as much damage as possible
 
 First barrel to explode will be the purple one 
@@ -83,13 +93,20 @@ label_settings = SubResource("LabelSettings_bgafk")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Button" type="Button" parent="."]
+[node name="kaboum" type="Button" parent="."]
 offset_left = 420.0
 offset_top = 587.0
 offset_right = 601.0
 offset_bottom = 645.0
 theme = SubResource("Theme_1aiis")
 text = "KABOUM !"
+
+[node name="reset" type="Button" parent="."]
+offset_left = 893.0
+offset_top = 8.0
+offset_right = 956.0
+offset_bottom = 39.0
+text = "RESET !"
 
 [node name="walls" type="Node2D" parent="."]
 
@@ -198,4 +215,5 @@ position = Vector2(437, 361)
 [node name="debris20" parent="debris_list" instance=ExtResource("3_x2qin")]
 position = Vector2(212, 292)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="kaboum" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]

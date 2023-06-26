@@ -6,8 +6,10 @@ var radius = 16
 var game_is_playing = false
 @export var number_of_barrel:int
 @export var number_of_random_debris:int
+var Score = 0
 
-var Score:int
+@onready var mon_home = preload("res://home.tscn")
+var instance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +17,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	$Ui/Score.text = "Score : "+str(Score)
 	
 	for barrel in get_node("barrels").get_children():
 		
@@ -29,3 +33,9 @@ func _process(delta):
 func _on_button_pressed():
 	game_is_playing = true
 	$barrels/barrel_explose_debut.exploding()
+
+
+func _on_reset_pressed():
+	var decalage = [0,0]
+	for barrel in $barrels.get_children():
+		barrel.position = Vector2(200+decalage[0],200+decalage[1])
