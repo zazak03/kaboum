@@ -17,8 +17,10 @@ func exploding(delay = 1):
 			var direction = (debris.global_position - $Barrel.global_position)
 			var puissance_de_propulsage = (largeur_area2D - $Barrel.global_position.distance_to(debris.global_position)) * force
 			debris.apply_impulse(direction.normalized() * puissance_de_propulsage)
-			get_tree().root.get_node("home").Score += puissance_de_propulsage
+			get_tree().root.get_node("home").Score += int(puissance_de_propulsage/4)
 	hide()
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
