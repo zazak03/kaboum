@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var force = 5
+@export var force = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
