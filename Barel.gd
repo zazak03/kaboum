@@ -12,7 +12,7 @@ func exploding():
 	print("exploding")
 	var largeur_area2D = $Barrel/Area2D/CollisionShape2D.shape.radius
 	for debris in $Barrel/Area2D.get_overlapping_bodies():
-		if "debris" in debris.get_groupes():
+		if "debris" in debris.get_groups():
 			var direction = (debris.global_position - $Barrel.global_position)
 			debris.apply_impulse(direction.normalized() * (largeur_area2D - $Barrel.global_position.distance_to(debris.global_position)) * force)
 	queue_free()	
